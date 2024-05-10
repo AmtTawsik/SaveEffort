@@ -1,0 +1,375 @@
+{
+	"config": [
+		{
+			"name": "First name",
+			"is_visible": false,
+			"parent": null,
+			"dropdown": false,
+			"field": "first_name",
+			"type": "text",
+			"is_add": true,
+			"is_update": true,
+			"component": "RecordsTableDataDefault"
+		},
+		{
+			"name": "Last name",
+			"is_visible": false,
+			"parent": null,
+			"dropdown": false,
+			"field": "last_name",
+			"type": "text",
+			"is_add": true,
+			"is_update": true,
+			"component": "RecordsTableDataDefault"
+		},
+		{
+			"name": "Full name",
+			"is_primary": true,
+			"is_visible": true,
+			"parent": null,
+			"dropdown": false,
+			"field": "full_name",
+			"type": "text",
+			"is_add": false,
+			"is_update": false,
+			"combine": [
+				"first_name",
+				"last_name"
+			],
+			"component": "RecordsTableDataDefault"
+		},
+		{
+			"name": "Profile image",
+			"is_primary": false,
+			"is_visible": false,
+			"parent": null,
+			"dropdown": false,
+			"field": "image_url",
+			"type": "image",
+			"is_add": true,
+			"is_update": false,
+			"component": "RecordsTableDataDefault"
+		},
+		{
+			"name": "Job title",
+			"is_visible": true,
+			"parent": null,
+			"field": "job_title",
+			"type": "text",
+			"dropdown": false,
+			"is_add": true,
+			"is_update": true,
+			"is_group": true,
+			"component": "RecordsTableDataDefault"
+		},
+		{
+			"name": "Email",
+			"is_visible": true,
+			"parent": null,
+			"dropdown": false,
+			"field": "primary_email",
+			"type": "email",
+			"is_add": true,
+			"is_update": true,
+			"component": "RecordsTableDataDefault"
+		},
+		{
+			"name": "Phone",
+			"is_visible": true,
+			"parent": null,
+			"dropdown": false,
+			"field": "primary_phone",
+			"type": "tel",
+			"visibility": "isPhoneVisible",
+			"is_add": true,
+			"is_update": true,
+			"component": "RecordsTableDataDefault"
+		},
+		{
+			"name": "Source",
+			"is_visible": true,
+			"parent": null,
+			"field": "source",
+			"type": "text",
+			"dropdown": true,
+			"options": [
+				{
+					"name": "Outreach",
+					"value": "Outreach"
+				},
+				{
+					"name": "Website",
+					"value": "Website"
+				},
+				{
+					"name": "Referral",
+					"value": "Referral"
+				},
+				{
+					"name": "LinkedIn",
+					"value": "LinkedIn"
+				},
+				{
+					"name": "Network",
+					"value": "Network"
+				},
+				{
+					"name": "Email",
+					"value": "Email"
+				}
+			],
+			"is_add": true,
+			"is_update": true,
+			"is_group": true,
+			"component": "RecordsTableDataDefault"
+		},
+		{
+			"name": "Department",
+			"is_visible": true,
+			"parent": null,
+			"field": "department",
+			"type": "text",
+			"dropdown": true,
+			"options": [
+				{
+					"name": "Marketing",
+					"value": "Marketing"
+				},
+				{
+					"name": "Sales",
+					"value": "Sales"
+				},
+				{
+					"name": "Operations",
+					"value": "Operations"
+				},
+				{
+					"name": "IT",
+					"value": "IT"
+				},
+				{
+					"name": "HR",
+					"value": "HR"
+				},
+				{
+					"name": "Project",
+					"value": "Project"
+				},
+				{
+					"name": "Finance",
+					"value": "Finance"
+				}
+			],
+			"is_add": true,
+			"is_update": true,
+			"is_group": true,
+			"component": "RecordsTableDataDefault"
+		},
+		{
+			"name": "Stage",
+			"is_visible": true,
+			"parent": null,
+			"dropdown": false,
+			"field": "leads_pipeline",
+			"type": "pipeline",
+			"stages": [
+				"Ignore",
+				"Lead",
+				"Qualified",
+				"Contacted",
+				"Replied",
+				"Quote",
+				"Won",
+				"Lost"
+			],
+			"colors": [
+				{
+					"bg": "#ff0000",
+					"text": "#ffffff"
+				},
+				{
+					"bg": "#fca5a5",
+					"text": "#ffffff"
+				},
+				{
+					"bg": "#facc15",
+					"text": "#ffffff"
+				},
+				{
+					"bg": "#fb923c",
+					"text": "#ffffff"
+				},
+				{
+					"bg": "#ff6600",
+					"text": "#ffffff"
+				},
+				{
+					"bg": "#10b981",
+					"text": "#ffffff"
+				},
+				{
+					"bg": "#059669",
+					"text": "#ffffff"
+				},
+				{
+					"bg": "#000000",
+					"text": "#ffffff"
+				}
+			],
+			"is_add": false,
+			"is_update": false,
+			"component": "RecordsTableDataPipeline"
+		}
+	],
+	"tab_fields": {
+		"Pipeline": {
+			"type": "pipeline",
+			"pipeline_field": "leads_pipeline",
+			"field": {
+				"name": "Pipeline",
+				"is_visible": true,
+				"table_view": false,
+				"parent": null,
+				"dropdown": false,
+				"field": "leads_pipeline",
+				"type": "text",
+				"is_update": false,
+				"colors": [
+					{
+						"bg": "#ff0000",
+						"text": "#ffffff"
+					},
+					{
+						"bg": "#fca5a5",
+						"text": "#ffffff"
+					},
+					{
+						"bg": "#facc15",
+						"text": "#ffffff"
+					},
+					{
+						"bg": "#fb923c",
+						"text": "#ffffff"
+					},
+					{
+						"bg": "#ff6600",
+						"text": "#ffffff"
+					},
+					{
+						"bg": "#10b981",
+						"text": "#ffffff"
+					},
+					{
+						"bg": "#059669",
+						"text": "#ffffff"
+					},
+					{
+						"bg": "#000000",
+						"text": "#ffffff"
+					}
+				],
+				"component": "RecordsTableDataDefault"
+			}
+		},
+		"notes": {
+			"type": "note",
+			"fields": [
+				{
+					"name": "Notes",
+					"is_visible": true,
+					"table_view": true,
+					"parent": null,
+					"dropdown": false,
+					"field": "notes",
+					"type": "text",
+					"is_update": false,
+					"component": "RecordsTableDataDefault"
+				}
+			]
+		},
+		"documents": {
+			"type": "document",
+			"fields": [
+				{
+					"name": "Documents",
+					"is_visible": true,
+					"table_view": false,
+					"parent": null,
+					"dropdown": false,
+					"field": "documents",
+					"type": "text",
+					"is_update": false,
+					"component": "RecordsTableDataDefault"
+				}
+			]
+		},
+		"history": {
+			"type": "history",
+			"fields": [
+				{
+					"name": "Update logs",
+					"is_visible": true,
+					"table_view": true,
+					"parent": null,
+					"dropdown": false,
+					"field": "update_logs",
+					"type": "text",
+					"is_update": false,
+					"component": "RecordsTableDataDefault"
+				}
+			]
+		}
+	},
+	"roles": [
+		{
+			"name": "admin",
+			"apply_when": {
+				"%%true": {
+					"%function": {
+						"name": "is_admin"
+					}
+				}
+			},
+			"document_filters": {
+				"write": true,
+				"read": true
+			},
+			"fields": {
+				"update_logs": {
+					"read": true,
+					"write": false
+				}
+			},
+			"read": true,
+			"write": true,
+			"insert": true,
+			"delete": true,
+			"search": true
+		},
+		{
+			"name": "employee",
+			"apply_when": {
+				"%%true": {
+					"%function": {
+						"name": "is_admin"
+					}
+				}
+			},
+			"document_filters": {
+				"write": true,
+				"read": true
+			},
+			"fields": {
+				"projects": {
+					"write": false,
+					"read": false
+				}
+			},
+			"read": true,
+			"write": false,
+			"insert": false,
+			"delete": false,
+			"search": true
+		}
+	]
+}

@@ -1,0 +1,55 @@
+{
+	"config": [
+		{
+			"name": "Companies",
+			"to": "/companies",
+			"icon": "BuildingOffice2Icon"
+		},
+		{
+			"name": "Contacts",
+			"to": "/contacts",
+			"icon": "BriefcaseIcon"
+		},
+		{
+			"name": "Deals",
+			"to": "/deals",
+			"icon": "CreditCardIcon"
+		},
+		{
+			"name": "Tasks",
+			"to": "/tasks",
+			"icon": "ServerStackIcon"
+		},
+		{
+			"name": "People",
+			"to": "/people",
+			"icon": "UsersIcon"
+		},
+		{
+			"name": "Leads",
+			"to": "/leads",
+			"icon": "UsersIcon"
+		},
+		{
+			"name": "Projects",
+			"to": "/projects",
+			"icon": "Squares2X2Icon"
+		}
+	],
+
+	"roles": [
+		{
+			"name": "admin",
+			"visible": true
+		},
+		{
+			"name": "employee",
+			"pages": {
+				"Companies": false,
+				"Contacts": false,
+				"Deals": false
+			},
+			"visible": true
+		}
+	]
+}

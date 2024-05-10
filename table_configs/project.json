@@ -1,0 +1,219 @@
+{
+	"config": [
+		{
+			"name": "Name",
+			"is_required": true,
+			"is_primary": true,
+			"is_visible": true,
+			"parent": null,
+			"dropdown": false,
+			"field": "name",
+			"type": "text",
+			"is_add": true,
+			"is_update": true,
+			"component": "RecordsTableDataDefault"
+		},
+		{
+			"name": "Status",
+			"is_required": true,
+			"is_visible": true,
+			"parent": null,
+			"field": "status",
+			"type": "text",
+			"dropdown": true,
+			"options": [
+				{ "name": "To Do", "value": "To Do" },
+				{ "name": "In Progress", "value": "In Progress" },
+				{ "name": "Awaiting Feedback", "value": "Awaiting Feedback" },
+				{ "name": "Testing", "value": "Testing" },
+				{ "name": "Completed", "value": "Completed" },
+				{ "name": "On Hold", "value": "On Hold" }
+			],
+			"is_add": true,
+			"is_update": true,
+			"is_group": true,
+			"component": "RecordsTableDataDefault"
+		},
+		{
+			"name": "Keywords",
+			"is_required": true,
+			"is_visible": true,
+			"parent": null,
+			"dropdown": false,
+			"field": "keywords",
+			"type": "chips",
+			"is_add": true,
+			"is_update": true,
+			"component": "RecordsTableDataKeywords"
+		},
+		{
+			"name": "Owner",
+			"is_visible": true,
+			"parent": null,
+			"dropdown": false,
+			"options": null,
+			"is_assign_dropdown": true,
+			"get_from": "personStore",
+			"get_from_field": "full_name",
+			"get_from_value": "_id",
+			"assign_to_field": "lead_of_projects",
+			"field": "lead",
+			"type": "text",
+			"is_add": true,
+			"is_update": true,
+			"component": "RecordsTableDataPeople2"
+		},
+		{
+			"name": "Start date",
+			"is_visible": true,
+			"parent": null,
+			"dropdown": false,
+			"field": "start_date",
+			"type": "date",
+			"is_add": true,
+			"is_update": true,
+			"component": "RecordsTableDataDate"
+		},
+		{
+			"name": "End date",
+			"is_required": true,
+			"is_visible": true,
+			"parent": null,
+			"dropdown": false,
+			"field": "end_date",
+			"type": "date",
+			"is_add": true,
+			"is_update": true,
+			"component": "RecordsTableDataDate"
+		}
+	],
+
+	"tab_fields": {
+		"people": {
+			"type": "assign",
+			"start_date": true,
+			"end_date": true,
+			"percentage_alloaction": true,
+			"field": {
+				"name": "People",
+				"is_visible": true,
+				"parent": null,
+				"field": "people",
+				"type": "text",
+				"options": null,
+				"is_assign_dropdown": true,
+				"store_assign_info": true,
+				"get_from": "personStore",
+				"get_from_field": "full_name",
+				"get_from_field_image": "image_url",
+				"get_from_value": "_id",
+				"assign_to_field": "projects",
+				"component": "RecordsTableDataDefault"
+			}
+		},
+		"documents": {
+			"type": "document",
+			"fields": [
+				{
+					"name": "Documents",
+					"is_visible": true,
+					"table_view": false,
+					"parent": null,
+					"dropdown": false,
+					"field": "documentes",
+					"type": "text",
+					"is_update": false,
+					"component": "RecordsTableDataDefault"
+				}
+			]
+		},
+		"notes": {
+			"type": "note",
+			"fields": [
+				{
+					"name": "Notes",
+					"is_visible": true,
+					"table_view": true,
+					"parent": null,
+					"dropdown": false,
+					"field": "notes",
+					"type": "text",
+					"is_update": false,
+					"component": "RecordsTableDataDefault"
+				}
+			]
+		},
+
+		"history": {
+			"type": "history",
+			"fields": [
+				{
+					"name": "Update logs",
+					"is_visible": true,
+					"table_view": false,
+					"parent": null,
+					"dropdown": false,
+					"field": "update_logs",
+					"type": "text",
+					"is_update": false,
+					"component": "RecordsTableDataDefault"
+				}
+			]
+		}
+	},
+	"roles": [
+		{
+			"name": "admin",
+			"apply_when": {
+				"%%true": {
+					"%function": {
+						"name": "is_admin"
+					}
+				}
+			},
+			"document_filters": {
+				"write": true,
+				"read": true
+			},
+			"read": true,
+			"write": true,
+			"insert": true,
+			"delete": true,
+			"search": true
+		},
+		{
+			"name": "employee",
+			"apply_when": {
+				"%%true": {
+					"%function": {
+						"name": "is_admin"
+					}
+				}
+			},
+			"document_filters": {
+				"write": true,
+				"read": true
+			},
+
+			"fields": {
+				"people": {
+					"write": false,
+					"read": false
+				},
+				"client": {
+					"write": false,
+					"read": false
+				},
+				"lead": {
+					"write": false,
+					"read": false
+				}
+			},
+			"read": true,
+			"write": true,
+			"insert": false,
+			"delete": false,
+			"search": true
+		}
+	]
+}

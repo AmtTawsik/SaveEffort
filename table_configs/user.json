@@ -1,0 +1,181 @@
+{
+	"config": [
+		{
+			"name": "Title",
+			"is_primary": true,
+			"is_visible": true,
+			"parent": null,
+			"dropdown": false,
+			"field": "full_name",
+			"type": "text",
+			"is_add": true,
+			"is_update": true,
+			"component": "RecordsTableDataDefault"
+		},
+		{
+			"name": "Description",
+			"is_visible": true,
+			"parent": null,
+			"dropdown": false,
+			"field": "description",
+			"type": "textarea",
+			"is_add": true,
+			"is_update": true,
+			"component": "RecordsTableDataDefault"
+		},
+		{
+			"name": "Priority",
+			"is_visible": true,
+			"parent": null,
+			"field": "priority",
+			"type": "text",
+			"is_add": true,
+			"is_update": true,
+			"is_group": true,
+			"dropdown": true,
+			"options": [
+				{ "name": "Low", "value": "Low" },
+				{ "name": "Medium", "value": "Medium" },
+				{ "name": "High", "value": "High" }
+			],
+			"component": "RecordsTableDataPriority"
+		},
+		{
+			"name": "Owner",
+			"is_visible": true,
+			"parent": null,
+			"field": "owner",
+			"type": "text",
+			"is_add": true,
+			"is_update": false,
+			"is_group": false,
+			"dropdown": true,
+			"options": null,
+			"is_assign_dropdown": true,
+			"get_from": "contactStore",
+			"get_from_field": "full_name",
+			"get_from_value": "_id",
+			"assign_to_field": "owner_of_tasks",
+			"component": "RecordsTableDataDefault"
+		},
+		{
+			"name": "Stages",
+			"is_visible": false,
+			"parent": null,
+			"field": "stage",
+			"type": "pipeline",
+			"stages": ["Screening", "Challange", "Interview", "Test", "Hired"],
+			"is_add": false,
+			"is_update": false,
+			"is_group": false,
+			"component": "RecordsTableDataDefault"
+		}
+	],
+
+	"tab_fields": {
+		"summary": {
+			"type": "pipeline",
+			"pipeline_field": "stage"
+		},
+
+		"notes": {
+			"type": "note",
+			"fields": [
+				{
+					"name": "Notes",
+					"is_visible": true,
+					"table_view": true,
+					"parent": null,
+					"dropdown": false,
+					"field": "notes",
+					"type": "text",
+					"is_update": false,
+					"component": "RecordsTableDataDefault"
+				}
+			]
+		},
+
+		"contacts": {
+			"type": "assign",
+			"field": {
+				"name": "Contact",
+				"is_visible": true,
+				"parent": null,
+				"field": "contacts",
+				"type": "text",
+				"options": null,
+				"is_assign_dropdown": true,
+				"get_from": "contactStore",
+				"get_from_field": "full_name",
+				"get_from_value": "_id",
+				"assign_to_field": "deals",
+				"component": "RecordsTableDataDefault"
+			}
+		},
+
+		"history": {
+			"type": "history",
+			"fields": [
+				{
+					"name": "Update logs",
+					"is_visible": true,
+					"table_view": false,
+					"parent": null,
+					"dropdown": false,
+					"field": "update_logs",
+					"type": "text",
+					"is_update": false,
+					"component": "RecordsTableDataDefault"
+				}
+			]
+		}
+	},
+
+	"roles": [
+		{
+			"name": "admin",
+			"apply_when": {
+				"%%true": {
+					"%function": {
+						"name": "is_admin"
+					}
+				}
+			},
+			"document_filters": {
+				"write": true,
+				"read": true
+			},
+			"read": true,
+			"write": true,
+			"insert": true,
+			"delete": true,
+			"search": true
+		},
+		{
+			"name": "employee",
+			"apply_when": {
+				"%%true": {
+					"%function": {
+						"name": "is_admin"
+					}
+				}
+			},
+			"document_filters": {
+				"write": true,
+				"read": true
+			},
+
+			"additional_fields": {
+				"projects": {
+					"write": false,
+					"read": false
+				}
+			},
+			"read": true,
+			"write": true,
+			"insert": true,
+			"delete": true,
+			"search": true
+		}
+	]
+}

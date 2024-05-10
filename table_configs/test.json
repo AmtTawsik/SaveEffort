@@ -1,0 +1,174 @@
+{
+	"config": [
+		{
+			"name": "Reference",
+			"is_primary": true,
+			"is_visible": true,
+			"parent": null,
+			"dropdown": false,
+			"field": "reference",
+			"type": "text",
+			"is_add": true,
+			"is_update": true,
+			"component": "RecordsTableDataDefault"
+		},
+		{
+			"name": "Proposal",
+			"is_visible": true,
+			"parent": null,
+			"dropdown": false,
+			"field": "proposal",
+			"type": "text",
+			"is_add": true,
+			"is_update": true,
+			"component": "RecordsTableDataDefault"
+		},
+		{
+			"name": "Company",
+			"is_visible": true,
+			"is_company_dropdown": true,
+			"parent": null,
+			"dropdown": true,
+			"field": "company",
+			"type": "text",
+			"is_add": true,
+			"is_update": true,
+			"component": "RecordsTableDataDefault"
+		},
+		{
+			"name": "Decision Date",
+			"is_visible": true,
+			"parent": null,
+			"dropdown": false,
+			"field": "decision_date",
+			"type": "date",
+			"is_add": true,
+			"is_update": true,
+			"component": "RecordsTableDataDate"
+		},
+		{
+			"name": "Keywords",
+			"is_visible": true,
+			"parent": null,
+			"dropdown": false,
+			"field": "keywords",
+			"type": "chips",
+			"is_add": true,
+			"is_update": true,
+			"component": "RecordsTableDataKeywords"
+		},
+		{
+			"name": "Council",
+			"is_visible": true,
+			"parent": null,
+			"dropdown": false,
+			"field": "council",
+			"type": "text",
+			"is_add": true,
+			"is_update": true,
+			"component": "RecordsTableDataDefault"
+		},
+		{
+			"name": "Stage",
+			"is_visible": true,
+			"parent": null,
+			"dropdown": false,
+			"field": "leads_pipeline",
+			"type": "pipeline",
+			"stages": [
+				"Ignore",
+				"Lead",
+				"Qualified",
+				"Contacted",
+				"Replied",
+				"Quote",
+				"Won",
+				"Lost"
+			],
+			"is_add": false,
+			"is_update": false,
+			"component": "RecordsTableDataPipeline"
+		}
+	],
+
+	"tab_fields": {
+		"stages": {
+			"type": "pipeline",
+			"pipeline_field": "leads_pipeline",
+			"fields": [
+				{
+					"name": "Pipeline",
+					"is_visible": true,
+					"table_view": false,
+					"parent": null,
+					"dropdown": false,
+					"field": "leads_pipeline",
+					"type": "text",
+					"is_update": false,
+					"component": "RecordsTableDataDefault"
+				}
+			]
+		},
+		"documents": {
+			"type": "document",
+			"fields": [
+				{
+					"name": "Documents",
+					"is_visible": true,
+					"table_view": false,
+					"parent": null,
+					"dropdown": false,
+					"field": "documents",
+					"type": "text",
+					"is_update": false,
+					"component": "RecordsTableDataDefault"
+				}
+			]
+		},
+		"notes": {
+			"type": "note",
+			"fields": [
+				{
+					"name": "Notes",
+					"is_visible": true,
+					"table_view": true,
+					"parent": null,
+					"dropdown": false,
+					"field": "notes",
+					"type": "text",
+					"is_update": false,
+					"component": "RecordsTableDataDefault"
+				}
+			]
+		},
+
+		"history": {
+			"type": "history",
+			"field": {
+				"name": "Update logs",
+				"is_visible": true,
+				"table_view": false,
+				"parent": null,
+				"dropdown": false,
+				"field": "update_logs",
+				"type": "text",
+				"is_update": false,
+				"component": "RecordsTableDataDefault"
+			}
+		}
+	},
+	"roles": [
+		{
+			"name": "admin",
+			"document_filters": {
+				"write": true,
+				"read": true
+			},
+			"read": true,
+			"write": true,
+			"insert": true,
+			"delete": true,
+			"search": true
+		}
+	]
+}

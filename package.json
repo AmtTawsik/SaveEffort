@@ -1,0 +1,29 @@
+{
+	"name": "nuxt-app",
+	"private": true,
+	"scripts": {
+		"build": "nuxt build",
+		"dev": "nuxt dev",
+		"start": "npm run dev -- -o",
+		"generate": "nuxt generate",
+		"preview": "nuxt preview",
+		"postinstall": "nuxt prepare"
+	},
+	"devDependencies": {
+		"@nuxt/devtools": "latest",
+		"@nuxtjs/tailwindcss": "^6.8.0",
+		"@types/node": "^18.17.8",
+		"nuxt": "^3.9.3"
+	},
+	"dependencies": {
+		"@heroicons/vue": "^2.0.18",
+		"@pinia/nuxt": "^0.4.11",
+		"axios": "^1.4.0",
+		"flowbite": "^1.6.5",
+		"inflection": "^3.0.0",
+		"moment": "^2.29.4",
+		"realm-web": "^2.0.0",
+		"vue3-toastify": "^0.2.1",
+		"vuedraggable": "^4.1.0"
+	}
+}
